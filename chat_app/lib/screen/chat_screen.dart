@@ -4,6 +4,8 @@ import 'package:chat_app/widget/chat_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
+import '../services/services.dart';
+
 class ChatScreen extends StatefulWidget {
   const ChatScreen({Key? key}) : super(key: key);
 
@@ -41,7 +43,9 @@ class _ChatScreenState extends State<ChatScreen> {
           child: Image.asset(AssetsManager.openaiLogo),
         ),
         actions: [
-          IconButton(onPressed: () {},
+          IconButton(onPressed: () async {
+            await Services.showModalSheet(context: context);
+          },
             icon: const Icon(Icons.more_vert_rounded, color: Colors.white),),
         ],
       ),

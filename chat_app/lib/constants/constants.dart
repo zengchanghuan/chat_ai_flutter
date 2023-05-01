@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../widget/text_widget.dart';
+
 Color scaffoldBackgroundColor = const Color(0xFF343541);
 Color cardColor = const Color(0xFF444654);
 
-/*
+
 List<String> models = [
   'Model1',
   'Model2',
@@ -25,7 +27,7 @@ List<DropdownMenuItem<String>>? get getModelsItem {
               )));
   return modelsItems;
 }
-*/
+
 final chatMessages = [
   {
     "msg": "Hello who are you?",
