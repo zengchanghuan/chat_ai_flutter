@@ -25,3 +25,90 @@ doc/api/
 
 .flutter-plugins
 .flutter-plugins-dependencies
+
+
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Visual Studio Code related
+.vscode/
+
+# Flutter repo-specific
+.packages
+.pub/
+build/
+**/doc/api/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+# .vscode/
+
+# Flutter/Dart/Pub related
+**/generated_plugin_registrant.dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pubspec.lock
+
+# Android related
+**/android/app/build/
+**/android/app/gradle-wrapper.jar
+**/android/app/gradle.properties
+**/android/app/gradlew
+**/android/app/gradlew.bat
+**/android/local.properties
+**/android/.gradle
+**/android/.idea
+**/android/.vscode
+**/android/*.iml
+**/android/*/build
+**/android/*/local.properties
+*.jks
+*.keystore
+
+# iOS/Xcode related
+**/ios/.generated/
+**/ios/.idea/
+**/ios/.pub-cache/
+**/ios/.symlinks/
+**/ios/.vagrant/
+**/ios/Debug/
+**/ios/DerivedData/
+**/ios/Flutter/App.framework
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/app.flx
+**/ios/Flutter/app.zip
+**/ios/Flutter/flutter_assets/
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+**/ios/Runner.xcodeproj/xcuserdata/
+**/ios/Runner.xcworkspace/xcshareddata/
+**/ios/Runner.xcworkspace/xcuserdata/
+**/ios/.vscode/
+**/ios/ServiceDefinitions.json
+**/ios/Runner/GeneratedPluginRegistrant.swift
+**/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-*.png
+**/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+**/ios/Pods/
+
+# Exceptions to above rules.
+!/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
+
