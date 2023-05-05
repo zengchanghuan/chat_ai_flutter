@@ -1,6 +1,8 @@
 import 'package:chat_app/constants/constants.dart';
+import 'package:chat_app/services/api_service.dart';
 import 'package:chat_app/services/assets_manager.dart';
 import 'package:chat_app/widget/chat_widget.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
@@ -43,10 +45,12 @@ class _ChatScreenState extends State<ChatScreen> {
           child: Image.asset(AssetsManager.openaiLogo),
         ),
         actions: [
-          IconButton(onPressed: () async {
-            await Services.showModalSheet(context: context);
-          },
-            icon: const Icon(Icons.more_vert_rounded, color: Colors.white),),
+          IconButton(
+            onPressed: () async {
+              await Services.showModalSheet(context: context);
+            },
+            icon: const Icon(Icons.more_vert_rounded, color: Colors.white),
+          ),
         ],
       ),
       body: SafeArea(
@@ -56,9 +60,10 @@ class _ChatScreenState extends State<ChatScreen> {
               child: ListView.builder(
                   itemCount: 5,
                   itemBuilder: (context, index) {
-                    return  ChatWidget(
+                    return ChatWidget(
                       msg: chatMessages[index]["msg"].toString(),
-                      chatIndex: int.parse(chatMessages[index]["chatIndex"].toString()),
+                      chatIndex: int.parse(
+                          chatMessages[index]["chatIndex"].toString()),
                     );
                   }),
             ),
@@ -91,7 +96,18 @@ class _ChatScreenState extends State<ChatScreen> {
                         ),
                       ),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () async {
+                          try {
+                            await ApiService.getModels();
+                          } catch (error) {
+                            if (kDebugMode) {
+                              print("ApiService.getModels");
+                              print("error $error");
+                              print("ApiService.getModels");
+
+                            }
+                          }
+                        },
                         icon: const Icon(Icons.send),
                         color: Colors.white,
                       )
