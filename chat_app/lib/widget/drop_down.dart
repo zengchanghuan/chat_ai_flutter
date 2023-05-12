@@ -1,8 +1,10 @@
 import 'package:chat_app/model/models_model.dart';
+import 'package:chat_app/provdier/models_provider.dart';
 import 'package:chat_app/services/api_service.dart';
 import 'package:chat_app/widget/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:provider/provider.dart';
 import '../constants/constants.dart';
 
 class ModelsDrowDownWidget extends StatefulWidget {
@@ -13,14 +15,20 @@ class ModelsDrowDownWidget extends StatefulWidget {
 }
 
 class _ModelsDrowDownWidgetState extends State<ModelsDrowDownWidget> {
-  String? currentModel;
 
   bool isFirstLoading = true;
+  String currentModel = "gpt-3.5-turbo-0301";
+
+  
 
   @override
   Widget build(BuildContext context) {
+    // final modelsProvider = Provider.of(ModelsProvider(context,listen:false));
+    final modelsProvider = Provider.of<ModelsProvider>(context, listen: false);
+    currentModel = modelsProvider.getCurrentModel;
+
     return FutureBuilder<List<ModelsModel>>(
-        future: ApiService.getModels(),
+        future: modelsProvider.getAllModels(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting &&
               isFirstLoading == true) {
@@ -56,9 +64,9 @@ class _ModelsDrowDownWidgetState extends State<ModelsDrowDownWidget> {
                       setState(() {
                         currentModel = value.toString();
                       });
-                      // modelsProvider.setCurrentModel(
-                      //   value.toString(),
-                      // );
+                      modelsProvider.setCurrentModel(
+                        value.toString(),
+                      );
                     },
                   ),
                 );
